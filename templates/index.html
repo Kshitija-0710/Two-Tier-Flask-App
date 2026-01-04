@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Kshitija Randive | DevOps Portfolio</title>
 
+<!-- Icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 
 <style>
@@ -65,9 +65,6 @@ body {
   border-radius: 50%;
   padding: 6px;
   background: linear-gradient(135deg, var(--accent), #6366f1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .avatar img {
@@ -148,6 +145,10 @@ h1 {
   margin-bottom: 10px;
 }
 
+.section p {
+  line-height: 1.6;
+}
+
 .arch-img {
   width: 100%;
   border-radius: 12px;
@@ -168,6 +169,7 @@ h1 {
 
 <div class="container">
 
+  <!-- HERO -->
   <div class="hero">
     <div class="avatar">
       <img src="{{ url_for('static', filename='profile.png') }}" alt="Kshitija Randive">
@@ -178,40 +180,56 @@ h1 {
       <div class="subtitle">DevOps Engineer | Cloud • CI/CD • Automation</div>
 
       <div class="controls">
-        <a href="https://github.com/YOUR_GITHUB_USERNAME" target="_blank">
+        <a href="https://github.com/Kshitija-0710" target="_blank">
           <i class="fab fa-github"></i> GitHub
         </a>
-        <a href="https://linkedin.com/in/YOUR_LINKEDIN_USERNAME" target="_blank">
+        <a href="https://linkedin.com" target="_blank">
           <i class="fab fa-linkedin"></i> LinkedIn
         </a>
         <button onclick="toggleTheme()">🌙 / ☀️</button>
       </div>
 
       <div class="badges">
-        <img src="https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPO_NAME/actions/workflows/deploy.yml/badge.svg" alt="CI/CD Status">
+        <img src="https://github.com/Kshitija-0710/Two-Tier-Flask-App/actions/workflows/deploy.yml/badge.svg"
+             alt="CI/CD Status">
       </div>
 
       <div class="tools">
         <span class="tool">Docker</span>
+        <span class="tool">Docker Compose</span>
         <span class="tool">GitHub Actions</span>
         <span class="tool">AWS EC2</span>
+        <span class="tool">Nginx</span>
         <span class="tool">MySQL</span>
         <span class="tool">Linux</span>
       </div>
     </div>
   </div>
 
+  <!-- ABOUT -->
   <div class="section">
     <h2>About This Project</h2>
     <p>
       A production-grade DevOps project demonstrating a two-tier Flask and MySQL
-      application deployed on AWS EC2 with fully automated CI/CD using GitHub Actions.
+      application deployed on AWS EC2 with fully automated CI/CD using GitHub Actions,
+      Nginx reverse proxy, HTTPS (self-signed TLS), and caching.
     </p>
   </div>
 
+  <!-- ARCHITECTURE -->
   <div class="section">
-    <h2>Architecture & CI/CD Flow</h2>
-    <img src="{{ url_for('static', filename='../diagrams/Infrastructure.png') }}" class="arch-img">
+    <h2>Architecture Diagram</h2>
+    <img src="{{ url_for('static', filename='diagrams/Infrastructure.png') }}"
+         class="arch-img"
+         alt="Infrastructure Diagram">
+  </div>
+
+  <!-- WORKFLOW -->
+  <div class="section">
+    <h2>CI/CD Workflow</h2>
+    <img src="{{ url_for('static', filename='diagrams/project_workflow.png') }}"
+         class="arch-img"
+         alt="CI/CD Workflow Diagram">
   </div>
 
 </div>
