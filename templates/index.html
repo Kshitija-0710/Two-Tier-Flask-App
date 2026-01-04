@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +6,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Kshitija Randive | DevOps Portfolio</title>
 
-<!-- Icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 
 <style>
@@ -39,7 +39,6 @@ body {
   display: flex;
   justify-content: center;
   padding: 30px;
-  transition: 0.3s ease;
 }
 
 .container {
@@ -52,20 +51,23 @@ body {
   box-shadow: 0 35px 90px rgba(0,0,0,0.6);
 }
 
-/* ===== HERO ===== */
+/* HERO */
 .hero {
   display: flex;
-  gap: 40px;
+  gap: 48px;
   align-items: center;
-  margin-bottom: 35px;
+  margin-bottom: 40px;
 }
 
 .avatar {
   width: 190px;
   height: 190px;
   border-radius: 50%;
-  padding: 4px;
+  padding: 6px;
   background: linear-gradient(135deg, var(--accent), #6366f1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .avatar img {
@@ -76,7 +78,7 @@ body {
 }
 
 h1 {
-  font-size: 2.7rem;
+  font-size: 2.4rem;
   color: var(--accent);
 }
 
@@ -85,11 +87,11 @@ h1 {
   color: #94a3b8;
 }
 
-/* ===== CONTROLS ===== */
+/* CONTROLS */
 .controls {
   display: flex;
   gap: 14px;
-  margin-top: 12px;
+  margin-top: 14px;
   flex-wrap: wrap;
 }
 
@@ -101,6 +103,7 @@ h1 {
   color: var(--text);
   cursor: pointer;
   font-size: 0.85rem;
+  text-decoration: none;
 }
 
 .controls a:hover, .controls button:hover {
@@ -108,19 +111,16 @@ h1 {
   color: #020617;
 }
 
-/* ===== BADGES ===== */
+/* BADGES */
 .badges {
   margin-top: 14px;
-  display: flex;
-  gap: 14px;
-  flex-wrap: wrap;
 }
 
 .badges img {
   height: 28px;
 }
 
-/* ===== TOOLS ===== */
+/* TOOLS */
 .tools {
   margin-top: 16px;
   display: flex;
@@ -135,7 +135,7 @@ h1 {
   font-size: 0.8rem;
 }
 
-/* ===== SECTIONS ===== */
+/* SECTIONS */
 .section {
   margin-top: 35px;
   padding: 24px;
@@ -148,56 +148,13 @@ h1 {
   margin-bottom: 10px;
 }
 
-.section p {
-  font-size: 0.95rem;
-  line-height: 1.6;
-}
-
-/* ===== ARCH ===== */
 .arch-img {
   width: 100%;
   border-radius: 12px;
   margin-top: 12px;
 }
 
-/* ===== CHAT ===== */
-.messages {
-  margin-top: 20px;
-  max-height: 220px;
-  overflow-y: auto;
-  padding: 16px;
-  background: rgba(56,189,248,0.08);
-  border-radius: 16px;
-}
-
-.messages p {
-  background: rgba(255,255,255,0.1);
-  padding: 10px 14px;
-  border-radius: 12px;
-  margin-bottom: 8px;
-}
-
-input[type="text"], input[type="submit"] {
-  width: 100%;
-  margin-top: 10px;
-  padding: 14px;
-  border-radius: 12px;
-  border: none;
-}
-
-input[type="text"] {
-  background: rgba(255,255,255,0.05);
-  color: var(--text);
-}
-
-input[type="submit"] {
-  background: var(--accent);
-  color: #020617;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-/* ===== RESPONSIVE ===== */
+/* RESPONSIVE */
 @media (max-width: 900px) {
   .hero {
     flex-direction: column;
@@ -211,93 +168,58 @@ input[type="submit"] {
 
 <div class="container">
 
-  <!-- HERO -->
   <div class="hero">
     <div class="avatar">
-      <img src="1.png" alt="Kshitija Randive">
+      <img src="{{ url_for('static', filename='profile.png') }}" alt="Kshitija Randive">
     </div>
 
     <div>
       <h1>Kshitija Randive</h1>
       <div class="subtitle">DevOps Engineer | Cloud • CI/CD • Automation</div>
 
-      <!-- CONTROLS -->
       <div class="controls">
-        <a href="https://github.com/YOUR_GITHUB_USERNAME" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-        <a href="https://linkedin.com/in/YOUR_LINKEDIN_USERNAME" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
-        <a href="resume.pdf" download><i class="fa-solid fa-download"></i> Resume</a>
+        <a href="https://github.com/YOUR_GITHUB_USERNAME" target="_blank">
+          <i class="fab fa-github"></i> GitHub
+        </a>
+        <a href="https://linkedin.com/in/YOUR_LINKEDIN_USERNAME" target="_blank">
+          <i class="fab fa-linkedin"></i> LinkedIn
+        </a>
         <button onclick="toggleTheme()">🌙 / ☀️</button>
       </div>
 
-      <!-- BADGES -->
       <div class="badges">
         <img src="https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPO_NAME/actions/workflows/deploy.yml/badge.svg" alt="CI/CD Status">
       </div>
 
-      <!-- TOOLS -->
       <div class="tools">
         <span class="tool">Docker</span>
         <span class="tool">GitHub Actions</span>
         <span class="tool">AWS EC2</span>
-        <span class="tool">Nginx</span>
         <span class="tool">MySQL</span>
         <span class="tool">Linux</span>
       </div>
     </div>
   </div>
 
-  <!-- ABOUT -->
   <div class="section">
     <h2>About This Project</h2>
     <p>
-      A production-style DevOps project where a two-tier Flask and MySQL
-      application is containerized using Docker and deployed on AWS EC2.
-      CI/CD is fully automated using GitHub Actions, with Nginx reverse proxy
-      and HTTPS for security.
+      A production-grade DevOps project demonstrating a two-tier Flask and MySQL
+      application deployed on AWS EC2 with fully automated CI/CD using GitHub Actions.
     </p>
   </div>
 
-  <!-- ARCH -->
   <div class="section">
     <h2>Architecture & CI/CD Flow</h2>
-    <img src="diagrams/Infrastructure.png" class="arch-img" alt="Architecture Diagram">
+    <img src="{{ url_for('static', filename='../diagrams/Infrastructure.png') }}" class="arch-img">
   </div>
-
-  <!-- CHAT -->
-  <div class="messages">
-    {% for message in messages %}
-      <p>{{ message[0] }}</p>
-    {% endfor %}
-  </div>
-
-  <form id="messageForm">
-    <input type="text" name="new_message" placeholder="Type a message..." required />
-    <input type="submit" value="Send Message" />
-  </form>
 
 </div>
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
 function toggleTheme() {
   document.body.classList.toggle("light");
-  localStorage.setItem("theme", document.body.classList.contains("light") ? "light" : "dark");
 }
-
-if (localStorage.getItem("theme") === "light") {
-  document.body.classList.add("light");
-}
-
-$("#messageForm").submit(function(e){
-  e.preventDefault();
-  const msg = $("input[name='new_message']").val().trim();
-  if(!msg) return;
-
-  $.post("/submit", { new_message: msg }, function(res){
-    $(".messages").append("<p>"+res.message+"</p>");
-    $("input[name='new_message']").val("");
-  });
-});
 </script>
 
 </body>
