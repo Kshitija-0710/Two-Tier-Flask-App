@@ -5,8 +5,25 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Kshitija Randive | DevOps Portfolio</title>
 
+<!-- Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+:root {
+  --bg: #020617;
+  --card: rgba(255,255,255,0.06);
+  --text: #f8fafc;
+  --accent: #38bdf8;
+}
+
+.light {
+  --bg: #f8fafc;
+  --card: #ffffff;
+  --text: #020617;
+  --accent: #2563eb;
+}
 
 * {
   margin: 0;
@@ -17,58 +34,95 @@
 
 body {
   min-height: 100vh;
-  background: linear-gradient(135deg, #0f172a, #1e293b, #020617);
+  background: var(--bg);
+  color: var(--text);
   display: flex;
   justify-content: center;
-  align-items: center;
-  color: #f8fafc;
-  padding: 20px;
+  padding: 30px;
+  transition: 0.3s ease;
 }
 
 .container {
-  max-width: 1100px;
+  max-width: 1150px;
   width: 100%;
-  background: rgba(255, 255, 255, 0.06);
+  background: var(--card);
   backdrop-filter: blur(18px);
-  border-radius: 24px;
-  padding: 40px;
+  border-radius: 26px;
+  padding: 45px;
+  box-shadow: 0 35px 90px rgba(0,0,0,0.6);
+}
+
+/* ===== HERO ===== */
+.hero {
   display: flex;
   gap: 40px;
-  box-shadow: 0 30px 80px rgba(0,0,0,0.7);
-  animation: slideUp 0.8s ease;
+  align-items: center;
+  margin-bottom: 35px;
 }
 
-.profile {
-  flex: 0 0 240px;
-  text-align: center;
+.avatar {
+  width: 190px;
+  height: 190px;
+  border-radius: 50%;
+  padding: 4px;
+  background: linear-gradient(135deg, var(--accent), #6366f1);
 }
 
-.profile img {
-  width: 210px;
-  height: 210px;
+.avatar img {
+  width: 100%;
+  height: 100%;
   border-radius: 50%;
   object-fit: cover;
-  border: 4px solid #38bdf8;
-  box-shadow: 0 0 35px rgba(56,189,248,0.6);
-}
-
-.content {
-  flex: 1;
 }
 
 h1 {
-  font-size: 2.6rem;
-  font-weight: 700;
-  color: #38bdf8;
+  font-size: 2.7rem;
+  color: var(--accent);
 }
 
 .subtitle {
   margin-top: 6px;
-  color: #cbd5f5;
+  color: #94a3b8;
 }
 
-.tools {
+/* ===== CONTROLS ===== */
+.controls {
+  display: flex;
+  gap: 14px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+
+.controls a, .controls button {
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.1);
+  border: none;
+  color: var(--text);
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.controls a:hover, .controls button:hover {
+  background: var(--accent);
+  color: #020617;
+}
+
+/* ===== BADGES ===== */
+.badges {
   margin-top: 14px;
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.badges img {
+  height: 28px;
+}
+
+/* ===== TOOLS ===== */
+.tools {
+  margin-top: 16px;
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
@@ -76,36 +130,37 @@ h1 {
 
 .tool {
   padding: 6px 14px;
-  background: rgba(255,255,255,0.1);
   border-radius: 999px;
+  background: rgba(255,255,255,0.1);
   font-size: 0.8rem;
-  border: 1px solid rgba(255,255,255,0.2);
-  transition: all 0.3s ease;
 }
 
-.tool:hover {
-  background: #38bdf8;
-  color: #020617;
-}
-
-.about {
-  margin-top: 25px;
-  padding: 22px;
+/* ===== SECTIONS ===== */
+.section {
+  margin-top: 35px;
+  padding: 24px;
   border-radius: 18px;
   background: rgba(255,255,255,0.07);
 }
 
-.about h2 {
-  color: #38bdf8;
-  margin-bottom: 8px;
+.section h2 {
+  color: var(--accent);
+  margin-bottom: 10px;
 }
 
-.about p {
+.section p {
   font-size: 0.95rem;
   line-height: 1.6;
-  color: #e5e7eb;
 }
 
+/* ===== ARCH ===== */
+.arch-img {
+  width: 100%;
+  border-radius: 12px;
+  margin-top: 12px;
+}
+
+/* ===== CHAT ===== */
 .messages {
   margin-top: 20px;
   max-height: 220px;
@@ -122,38 +177,29 @@ h1 {
   margin-bottom: 8px;
 }
 
-form {
-  margin-top: 16px;
-}
-
-input[type="text"] {
+input[type="text"], input[type="submit"] {
   width: 100%;
-  padding: 14px;
-  border-radius: 12px;
-  border: 1px solid rgba(56,189,248,0.4);
-  background: rgba(255,255,255,0.05);
-  color: #fff;
-}
-
-input[type="submit"] {
   margin-top: 10px;
-  width: 100%;
   padding: 14px;
   border-radius: 12px;
   border: none;
-  background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+}
+
+input[type="text"] {
+  background: rgba(255,255,255,0.05);
+  color: var(--text);
+}
+
+input[type="submit"] {
+  background: var(--accent);
   color: #020617;
   font-weight: 600;
   cursor: pointer;
 }
 
-@keyframes slideUp {
-  from { opacity: 0; transform: translateY(40px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
+/* ===== RESPONSIVE ===== */
 @media (max-width: 900px) {
-  .container {
+  .hero {
     flex-direction: column;
     text-align: center;
   }
@@ -164,52 +210,84 @@ input[type="submit"] {
 <body>
 
 <div class="container">
-  <div class="profile">
-    <img src="1.png" alt="Kshitija Randive">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="avatar">
+      <img src="1.png" alt="Kshitija Randive">
+    </div>
+
+    <div>
+      <h1>Kshitija Randive</h1>
+      <div class="subtitle">DevOps Engineer | Cloud • CI/CD • Automation</div>
+
+      <!-- CONTROLS -->
+      <div class="controls">
+        <a href="https://github.com/YOUR_GITHUB_USERNAME" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+        <a href="https://linkedin.com/in/YOUR_LINKEDIN_USERNAME" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        <a href="resume.pdf" download><i class="fa-solid fa-download"></i> Resume</a>
+        <button onclick="toggleTheme()">🌙 / ☀️</button>
+      </div>
+
+      <!-- BADGES -->
+      <div class="badges">
+        <img src="https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPO_NAME/actions/workflows/deploy.yml/badge.svg" alt="CI/CD Status">
+      </div>
+
+      <!-- TOOLS -->
+      <div class="tools">
+        <span class="tool">Docker</span>
+        <span class="tool">GitHub Actions</span>
+        <span class="tool">AWS EC2</span>
+        <span class="tool">Nginx</span>
+        <span class="tool">MySQL</span>
+        <span class="tool">Linux</span>
+      </div>
+    </div>
   </div>
 
-  <div class="content">
-    <h1>Kshitija Randive</h1>
-    <div class="subtitle">DevOps Engineer | Cloud • CI/CD • Automation</div>
-
-    <div class="tools">
-      <span class="tool">Docker</span>
-      <span class="tool">GitHub Actions</span>
-      <span class="tool">AWS EC2</span>
-      <span class="tool">Nginx</span>
-      <span class="tool">MySQL</span>
-      <span class="tool">Linux</span>
-    </div>
-
-    <div class="about">
-      <h2>About This Project</h2>
-      <p>
-        This project demonstrates a real-world DevOps workflow where a
-        two-tier Flask + MySQL application is containerized using Docker
-        and deployed on AWS EC2.
-      </p>
-      <p style="margin-top:8px;">
-        The entire deployment lifecycle is automated using
-        <b>GitHub Actions</b>, ensuring consistent, repeatable,
-        and hands-free deployments.
-      </p>
-    </div>
-
-    <div class="messages">
-      {% for message in messages %}
-        <p>{{ message[0] }}</p>
-      {% endfor %}
-    </div>
-
-    <form id="messageForm">
-      <input type="text" name="new_message" placeholder="Type a message..." required />
-      <input type="submit" value="Send Message" />
-    </form>
+  <!-- ABOUT -->
+  <div class="section">
+    <h2>About This Project</h2>
+    <p>
+      A production-style DevOps project where a two-tier Flask and MySQL
+      application is containerized using Docker and deployed on AWS EC2.
+      CI/CD is fully automated using GitHub Actions, with Nginx reverse proxy
+      and HTTPS for security.
+    </p>
   </div>
+
+  <!-- ARCH -->
+  <div class="section">
+    <h2>Architecture & CI/CD Flow</h2>
+    <img src="diagrams/Infrastructure.png" class="arch-img" alt="Architecture Diagram">
+  </div>
+
+  <!-- CHAT -->
+  <div class="messages">
+    {% for message in messages %}
+      <p>{{ message[0] }}</p>
+    {% endfor %}
+  </div>
+
+  <form id="messageForm">
+    <input type="text" name="new_message" placeholder="Type a message..." required />
+    <input type="submit" value="Send Message" />
+  </form>
+
 </div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
+function toggleTheme() {
+  document.body.classList.toggle("light");
+  localStorage.setItem("theme", document.body.classList.contains("light") ? "light" : "dark");
+}
+
+if (localStorage.getItem("theme") === "light") {
+  document.body.classList.add("light");
+}
+
 $("#messageForm").submit(function(e){
   e.preventDefault();
   const msg = $("input[name='new_message']").val().trim();
