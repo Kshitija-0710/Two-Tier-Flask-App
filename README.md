@@ -17,6 +17,17 @@ A complete CI/CD pipeline is implemented using GitHub Actions, and traffic is se
 
 ---
 
+## 🌐 Live Application (HTTPS)
+
+Below is the live application UI served securely over HTTPS using Nginx reverse proxy and a self-signed TLS certificate.
+
+![Live HTTPS Application](static/diagrams/browser_https_ui.png)
+
+> ⚠️ Browser shows “Not Secure” warning due to self-signed certificate.  
+> Traffic is still fully encrypted.
+
+---
+
 ## 🏗️ Architecture
 
 ### High-Level Architecture
